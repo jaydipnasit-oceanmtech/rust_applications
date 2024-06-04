@@ -1,0 +1,8 @@
+syntax = "proto3";
+package tutorial_resource;
+
+// [RINF:DART-SIGNAL]
+message MyTreasureInput {}
+
+// [RINF:RUST-SIGNAL]
+message MyTreasureOutput { int32 current_value = 1; }
