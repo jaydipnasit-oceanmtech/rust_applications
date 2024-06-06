@@ -174,10 +174,11 @@ packages:
   rinf:
     dependency: "direct main"
     description:
-      name: rinf
-      sha256: "2cd5cae1e414fbab1e5e432c3556bffd2e4138c247e38f02e4f875611e602d5d"
-      url: "https://pub.dev"
-    source: hosted
+      path: flutter_ffi_plugin
+      ref: "6ac1d49d890a6e68ed3eaadc2dee426e7e9d683f"
+      resolved-ref: "6ac1d49d890a6e68ed3eaadc2dee426e7e9d683f"
+      url: "https://github.com/jaydipnasit-oceanmtech/rinf.git"
+    source: git
     version: "6.11.1"
   sky_engine:
     dependency: transitive
