@@ -73,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
             print('BlendImage bytes length: ${blendImageBytes.length}');
 
             OverlayInputData data = OverlayInputData(inputImage: blendImageBytes, overlayImage: watermarkBytes);
-            //   print('OverlayInputData: ${data}');
+
             data.sendSignalToRust();
           } catch (e) {
             print('Error: $e');
