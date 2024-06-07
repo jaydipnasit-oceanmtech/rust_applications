@@ -9,6 +9,7 @@ message OverlayInputData {
   int32 overlay_height = 4; // Field for the height of the overlay
   int32 overlay_x = 5; // Field for the x-coordinate of the overlay position
   int32 overlay_y = 6; // Field for the y-coordinate of the overlay position
+  bytes logo_image = 7;
 }
 
 // [RINF:RUST-SIGNAL]
