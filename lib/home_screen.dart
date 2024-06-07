@@ -63,6 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
         onPressed: () async {
           try {
             final watermark = await rootBundle.load('asset/image/frame_overlay.png');
+
             final blendImage = await rootBundle.load('asset/image/background.png');
 
             final watermarkBytes = watermark.buffer.asUint8List();
@@ -71,19 +72,9 @@ class _HomeScreenState extends State<HomeScreen> {
             print('Watermark bytes length: ${watermarkBytes.length}');
             print('BlendImage bytes length: ${blendImageBytes.length}');
 
-            OverlayInputData data = OverlayInputData(
-              inputImage: blendImageBytes,
-              overlayImage: watermarkBytes,
-              overlayHeight: 200,
-              overlayWidth: 200,
-              overlayX: 20,
-              overlayY: 20,
-            );
-
-            print('OverlayInputData: ${data}');
-
+            OverlayInputData data = OverlayInputData(inputImage: blendImageBytes, overlayImage: watermarkBytes);
+            //   print('OverlayInputData: ${data}');
             data.sendSignalToRust();
-            OverlayInputData(overlayImage: data.inputImage).sendSignalToRust();
           } catch (e) {
             print('Error: $e');
           }
