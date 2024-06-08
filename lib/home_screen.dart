@@ -49,10 +49,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 }
                 final myTreasureOutput = rustSignal.message;
                 final currentNumber = myTreasureOutput.outputImage;
-                print("==treasure=======>>>>>>>>>${myTreasureOutput}");
-                print("===current======>>>>>>>>>${currentNumber}");
-                print("===rustsing======>>>>>>>>>${rustSignal}");
-                print("=======mess==>>>>>>>>>${rustSignal.message}");
+                // print("==treasure=======>>>>>>>>>${myTreasureOutput}");
+                // print("===current======>>>>>>>>>${currentNumber}");
+                // print("===rustsing======>>>>>>>>>${rustSignal}");
+                // print("=======mess==>>>>>>>>>${rustSignal.message}");
+                // log(Image.memory(currentNumber as Uint8List).toString());
                 return Image.memory(currentNumber as Uint8List);
               },
             ),
@@ -64,22 +65,27 @@ class _HomeScreenState extends State<HomeScreen> {
           try {
             final watermark = await rootBundle.load('asset/image/frame_overlay.png');
 
-            final blendImage = await rootBundle.load('asset/image/background.png');
-            final logoImage = await rootBundle.load('asset/image/logo.jpg');
+            final blendImage = await rootBundle.load('asset/image/imagefream.png');
+            final logoImage = await rootBundle.load('asset/image/logo.png');
 
             final watermarkBytes = watermark.buffer.asUint8List();
             final blendImageBytes = blendImage.buffer.asUint8List();
             final logoImageBytes = logoImage.buffer.asUint8List();
 
-            print('Watermark bytes length: ${watermarkBytes.length}');
-            print('BlendImage bytes length: ${blendImageBytes.length}');
+            // print('Watermark bytes length: ${watermarkBytes.length}');
+            // print('BlendImage bytes length: ${blendImageBytes.length}');
 
             OverlayInputData data = OverlayInputData(
-              inputImage: blendImageBytes,
-              overlayImage: watermarkBytes,
-              logoImage: logoImageBytes,
-            );
-
+                inputImage: blendImageBytes, overlayImage: watermarkBytes, logoImage: logoImageBytes, logoHeight: 100
+                // overlayWidth: 200,
+                // overlayHeight: 200,
+                // overlayX: 50,
+                // overlayY: 50,
+                // logoWidth: 100,
+                // logoHeight: 100,
+                // logoX: 10,
+                // logoY: 10,
+                );
             data.sendSignalToRust();
           } catch (e) {
             print('Error: $e');
